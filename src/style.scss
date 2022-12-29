@@ -192,6 +192,24 @@
     }
     .chat {
       flex: 2;
+      .chatInfo {
+        height: 3.1rem;
+        background-color: #5d5b8d;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem;
+        color: lightgray;
+        .chatIcons {
+          display: flex;
+          gap: 0.6rem;
+          img {
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }
