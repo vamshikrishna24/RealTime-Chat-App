@@ -3,6 +3,7 @@ import video from "../img/video.png";
 import person from "../img/person-add-4.png";
 import more from "../img/more.png";
 import Messages from "./messages";
+import Input from "./input";
 const Chat = () => {
   return (
     <div className="chat">
@@ -15,6 +16,7 @@ const Chat = () => {
         </div>
       </div>
       <Messages />
+      <Input />
     </div>
   );
 };

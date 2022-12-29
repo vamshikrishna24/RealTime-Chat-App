@@ -1,3 +1,9 @@
+@mixin mobile {
+  @media screen and (max-width: 650px) {
+    @content;
+  }
+}
+
 * {
   font-family: inherit;
   font-size: 1rem;
@@ -106,6 +112,9 @@
 
         .logo {
           font-weight: bold;
+          @include mobile {
+            display: none;
+          }
         }
         .user {
           display: flex;
@@ -191,7 +200,7 @@
       }
     }
     .chat {
-      flex: 2;
+      flex: 3;
       .chatInfo {
         height: 3.1rem;
         background-color: #5d5b8d;
@@ -206,6 +215,101 @@
           img {
             width: 1.5rem;
             height: 1.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .messages::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .messages {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .messages {
+        background-color: #ddddf7;
+        padding: 0.6rem;
+        height: calc(100% - 9.8rem);
+        overflow: scroll;
+        .message {
+          display: flex;
+          gap: 1.2rem;
+          margin-bottom: 1.2rem;
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-weight: 300;
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .messageContent {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            gap: 0.6rem;
+            p {
+              background-color: white;
+              padding: 0.6rem 1.2rem;
+              border-radius: 0 0.6rem 0.6rem 0.6rem;
+              max-width: max-content;
+            }
+            img {
+              width: 50%;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+            .messageContent {
+              align-items: flex-end;
+              p {
+                background-color: #8da4f1;
+                color: white;
+                border-radius: 0.6rem 0 0.6rem 0.6rem;
+              }
+            }
+          }
+        }
+      }
+      .input {
+        height: 3.1rem;
+        background-color: #fff;
+        padding: 0.6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          color: #2f2d52;
+          font-size: 1.1rem;
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          img {
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+          }
+          button {
+            padding: 0.6rem 0.9rem;
+            color: white;
+            background-color: #a7bcff;
+            border: none;
             cursor: pointer;
           }
         }
