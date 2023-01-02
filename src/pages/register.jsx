@@ -41,9 +41,7 @@ const Register = () => {
               photoURL: downloadURL,
             });
 
-            await setDoc(doc(db, "userChats", res.user.uid), {
-              uid: res.user.uid,
-            });
+            await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
           });
         }
