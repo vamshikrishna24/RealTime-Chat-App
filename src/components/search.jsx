@@ -18,6 +18,7 @@ const Search = () => {
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
   const { currentUser } = useContext(AuthContext);
+
   const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
@@ -32,6 +33,7 @@ const Search = () => {
       setErr(true);
     }
   };
+
   const handleKey = (e) => {
     e.code === "Enter" && handleSearch();
   };
@@ -56,6 +58,7 @@ const Search = () => {
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
+
         await updateDoc(doc(db, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
@@ -66,9 +69,8 @@ const Search = () => {
         });
       }
     } catch (err) {}
-
-    setUsername("");
     setUser(null);
+    setUsername("");
   };
 
   return (
