@@ -69,7 +69,7 @@ const Input = () => {
   };
 
   const handleKey = (e) => {
-    e.charCode === 13 && handleSend();
+    e.code === "Enter" && handleSend();
   };
   return (
     <div className="input">
@@ -78,6 +78,7 @@ const Input = () => {
         placeholder="Type something here..."
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onKeyDown={handleKey}
       />
       <div className="send">
         <img src={attach} alt="" />
@@ -90,9 +91,7 @@ const Input = () => {
         <label htmlFor="file">
           <img src={img1} alt="" />
         </label>
-        <button onClick={handleSend} onKeyDown={handleKey}>
-          Send
-        </button>
+        <button onClick={handleSend}>Send</button>
       </div>
     </div>
   );
